@@ -1,0 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+
+
+.header-color {
+  /* background: yellow;   */
+  background: -webkit-linear-gradient(to right,#009688, #009688 ); 
+  background: linear-gradient(to right,#009688, #009688 ); 
+}
+
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: Quicksand, Noto, sans-serif;
+}
+
+
+.form-wrapper-right-form{
+  padding: 5%px 10%;
+  width: 45%;
+  display: inline-block;
+  margin-left: 50%;
+}
+
+.form-wrapper-right-form div{
+  margin-top: 20px;
+  font-family: Quicksand, Noto, sans-serif;
+  /* width: 100%; */
+}
+
+.form-wrapper-right-form select:not([multiple]){
+  height: 30px;
+}
+
+.wrapper{
+  height: 100%;
+  padding: 30px 0px;
+}
+
+.image-add-form-left{
+  width: 40%;
+  display: inline-block;
+  padding: 5%;
+  position: absolute;
+}
+.form-side-image{
+  width: 100%;
+}
+
+.page-heading{
+  font-size: xx-large;
+  font-weight: 700;
+  border-left: 4px solid #009688;
+  font-family: Quicksand, Noto, sans-serif;
+  padding-left: 20px;
+  text-align: left;
+  color: #009688;
+}
+
+.add-item-button{
+  padding: 10px 15px;
+  width: 20%;
+  margin-left: 40%;
+  margin-bottom: 30px;
+  background-color: white;
+  border: #009688 2px solid;
+  font-size: large;  
+  font-family: Quicksand, Noto, sans-serif;
+  color: #009688;
+  border-radius: 5px;
+  box-shadow: 1px 5px 5px rgb(231, 231, 231);
+  display: inline-block;
+  transition-duration: 0.3s;
+}
+
+.add-item-button:hover{
+  background-color: #009688;
+  color: white;
+  transition-duration: 0.3s;
+}
+
+
+
+.diseases-table-div {
+  padding: 40px 10%;
+}
+
+.row-image {
+  max-height: 50px;
+  padding: 3px;
+}
+
+.table-button-icon {
+  margin: 0px 5px;
+}
+
+.table-button-cell{
+    padding: 0px;
+}
+
+.table-button {
+  padding: 5px 6px;
+  border: 0px;
+  border-radius: 40px;
+  width: 40px;
+  height: 40px;
+  margin: 0px;
+  background-color: white;
+}
+
+.table-delete-button {
+  color: #ef5350;
+  border: 2px solid #ef5350;
+  transition-duration: 0.3s;
+}
+
+.table-delete-button:hover {
+  background-color: #ef5350;
+  color: white;
+  transition-duration: 0.3s;
+}
+
+.table-edit-button {
+  color: #42a5f5;
+  border: 2px solid #42a5f5;
+  transition-duration: 0.3s;
+
+}
+
+.table-edit-button:hover {
+  background-color: #42a5f5;
+  color: white;
+  transition-duration: 0.3s;
+
+}
+
+.table-view-button {
+  color: #26a69a;
+  border: 2px solid #26a69a;
+  transition-duration: 0.3s;
+
+}
+
+.table-view-button:hover {
+  background-color: #26a69a;
+  color: white;
+  transition-duration: 0.3s;
+}
+
+DataTable{
+  font-family: Quicksand, Noto, sans-serif;
+}
+
+.view-page-body{
+  background-color: rgb(245, 245, 245);
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+.view-page-card{
+  background-color: white;
+  border-radius: 20px;
+  margin: 5%;
+  margin-bottom: 0px;
+  margin-top: 0;
+  width: 90%;
+  box-shadow: 10px 10px 10px rgb(184, 184, 184);
+  padding: 30px 0px;
+}
+
+.view-page-heading{
+  font-family: Quicksand, Noto, sans-serif;
+  font-size: xx-large;
+  font-weight: 700;
+  color: #009688;
+  border-bottom: 4px #009688 solid;
+  width: 30%;
+  margin-left: 5%;
+  padding-bottom: 20px;
+  text-align: left;
+  display: inline-block;
+}
+
+.view-page-heading-icon{
+  margin-right: 30px;
+  border: 4px #009688 solid;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.data-table-div{
+  margin-top: 30px;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.item-data-table div{
+  font-family: Quicksand, Noto, sans-serif;
+  font-weight: 500;
+  font-size: medium;
+}
+
+.item-data-table img{
+  margin: 10px 0px;
+}
+
+Header{
+  font-family: Quicksand, Noto, sans-serif;
+}
+
+.footer p{  
+  width: 100%;
+  font-family: Quicksand, Noto, sans-serif;
+  text-align: center;
+  color: white;
+}
+
+.footer{
+  position: relative;;
+}

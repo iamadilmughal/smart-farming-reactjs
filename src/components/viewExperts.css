@@ -1,0 +1,24 @@
+.body{
+    background-color: rgba(255, 255, 255, 0.747);
+    margin: 1%;
+    padding: 1%;
+    
+}
+
+
+td button{
+    padding: 10px;
+    margin-right: 5px;
+    border-radius: 3px;
+}
+
+.uprate-icon, .downrate-icon{
+    margin-left: 10px;
+    margin-right: 10px;   
+}
+.uprate-icon{
+    color: #66bb6a
+}
+.downrate-icon{
+    color: #ef5350;
+}

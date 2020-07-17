@@ -1,0 +1,128 @@
+.mainBody {
+  width: 100%;
+  /* margin-top: 2%; */
+}
+
+.headerSection {
+  /* background-color: rgba(71, 71, 71, 0.548); */
+  background-image: url("../assets/headerImage.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  height: 80vh;
+}
+
+.overlayHeader {
+  background-color: rgba(41, 41, 41, 0.493);
+  height: 100%;
+  width: 100%;
+}
+
+.headerMainDiv {
+  width: 96%;
+  padding: 2%;
+  padding-top: 8%;
+  margin: 0;
+  display: inline-block;
+}
+
+.headerMainDiv p {
+  color: white;
+  font-size: large;
+  text-align: center;
+}
+
+.headerMainDiv h1 {
+  color: white;
+  font-weight: 900;
+  font-family: Quicksand, Noto, sans-serif;
+
+}
+
+.titleText {
+  color: #009688;
+  background-color: rgba(255, 255, 255, 0.733);
+  padding: 5px 15px;
+  margin: 10px;
+  font-family: Quicksand, Noto, sans-serif;
+
+}
+
+.headerBtn {
+  width: 20%;
+  margin-left: 38%;
+  margin-top: 30px;
+  padding: 2%;
+  font-size: larger;
+  background-color: white;
+  border: 0px;
+  font-weight: 700;
+  border-radius: 15px;
+  color: #009688;
+  font-family: Quicksand, Noto, sans-serif;
+
+}
+
+.headerBtn:hover {
+  color: white;
+  background-color: #009688;
+}
+
+.stepsDiv {
+  width: 96%;
+  padding: 2%;
+  padding-bottom: 5%;
+}
+
+.singleStep {
+  width: 20%;
+  padding: 2% 1%;
+  margin-left: 2%;
+  border: 2px #2a81144d solid;
+  border-radius: 5px;
+  display: inline-block;
+  
+}
+
+.stepHeading,
+.stepDescription {
+  text-align: center;
+  color: #2a8114;
+}
+.stepImage {
+  width: 30%;
+  margin-left: 40%;
+}
+
+.stepSectionHeading {
+  text-align: center;
+  width: 100%;
+  font-weight: 700;
+  color: #6ec259;
+  margin: 50px 0px;
+  font-family: Quicksand, Noto, sans-serif;
+
+}
+
+.downloadDivHeading{
+  text-align: center;
+  width: 100%;
+  font-weight: 700;
+  margin-bottom: 30px;
+  font-family: Quicksand, Noto, sans-serif;
+
+}
+
+.downloadAppDiv{
+    width: 100%;
+    background-color: #009688;
+    color: white;
+    padding: 5% 0%;
+}
+
+.downloadBtn{
+  width: 100%;
+}
+.downloadBtnDiv{
+  width: 20%;
+  margin-left: 40%;
+}

@@ -1,0 +1,160 @@
+
+.postComment {
+  background-color: rgba(255, 255, 255, 0.637);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 30px;
+  width: 60%;
+}
+
+.submitBtnDiv button {
+  padding: 20px;
+  width: 200px;
+  margin-top: 20px;
+  background-color: white;
+  border: 0px;
+  font-size: large;
+}
+
+.username,
+.comment {
+  display: block;
+  width: 80%;
+}
+.comment textarea {
+  height: 100px;
+  width: 100%;
+}
+
+.upvoteBtn {
+  color: rgb(76, 190, 76);
+  border: rgb(76, 190, 76) 5px solid;
+}
+.downvoteBtn {
+  color: rgb(218, 56, 56);
+  border: rgb(218, 56, 56) 5px solid;
+}
+
+.upvoteBtn,
+.downvoteBtn,
+.editBtn,
+.deleteBtn {
+  width: 150px;
+  background-color: white;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 0px;
+}
+.upvoteBtn:hover {
+  color: #eee;
+  background-color: rgb(76, 190, 76);
+}
+.downvoteBtn:hover {
+  color: #eee;
+  background-color: rgb(218, 56, 56);
+}
+
+.deleteBtn:hover {
+  color: #eee;
+  background-color: rgb(218, 56, 56);
+}
+.upvoteBtn p,
+.downvoteBtn p {
+  margin: 10px;
+}
+
+.deleteBtn, .editBtn{
+    width: 80%;
+}
+
+.postHeader {
+  background-color: rgba(255, 255, 255, 0.637);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 30px;
+}
+
+.postImageDiv{
+  padding: 20px;
+  border-radius: 10px;
+  margin: 30px;
+}
+
+.postImageDiv img{
+  width: 80%;
+  border-radius: 20px;
+}
+
+.postHeader p {
+  display: inline;
+  margin-right: 40px;
+}
+
+.voteCount {
+  /* width: 100%; */
+  text-align: center;
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.postDiv {
+  display: inline-block;
+  width: 80%;
+}
+
+.postBody {
+  background-color: rgba(255, 255, 255, 0.637);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 30px;
+  width: 90%;
+  display: inline-block;
+}
+
+.f_a_icon {
+  margin-right: 5px;
+}
+
+.voteDiv {
+  align-content: center;
+  background-color: rgba(255, 255, 255, 0.637);
+  padding: 20px;
+  border-radius: 10px;
+  margin: 30px;
+  width: 72%;
+}
+
+.commentsDiv {
+  background-color: rgba(255, 255, 255, 0.637);
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px 30px;
+  width: 60%;
+}
+
+.commentsDiv h6 {
+  font-weight: 800;
+  margin: 5px 0px;
+}
+
+#commentDate {
+  font-size: 12px;
+  color: rgb(66, 66, 66);
+  margin-top: 0px;
+}
+
+.submitPost{
+  background-color: #009688;
+  color: #009688;
+}
+
+.single-post-title{
+  font-family: Quicksand, Noto, sans-serif;
+  font-size: xx-large;
+  font-weight: 700;
+}
+
+h2, p, h6, h3{
+  font-family: Quicksand, Noto, sans-serif
+}

@@ -1,0 +1,65 @@
+.forum-post-body {
+  background-color: rgb(231, 231, 231);
+  margin-top: -30px;
+  padding-top: 40px;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 40px;
+}
+
+.forum-post-title,
+.forum-post-title h4 {
+  color: #009688;
+  font-family: Quicksand, Noto, sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.float {
+  position: fixed;
+  width: 200px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #0c9;
+  color: #fff;
+  border-radius: 50px;
+  font-family: Quicksand, Noto, sans-serif;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  font-size: larger;
+}
+
+.my-float {
+  margin-top: 22px;
+}
+
+.postCard {
+  background-color: rgb(255, 255, 255);
+  padding: 15px 25px;
+  border-radius: 10px;
+  margin-left: 1%;
+  margin-bottom: 20px;
+  padding-bottom: 30px;
+  box-shadow: -10px 10px 10px rgb(202, 202, 202);
+  width: 96%;
+}
+
+.postCard p {
+  display: inline;
+  margin-right: 30px;
+}
+
+.view-forum-heading{
+  font-family: Quicksand, Noto, sans-serif;
+  font-size: xx-large;
+  font-weight: 700;
+  color: #009688;
+  border-bottom: 6px #009688 solid;
+  padding-bottom: 20px;
+  margin-left: 1%;
+  width: 40%;
+  text-align: left;
+  display: inline-block;
+}

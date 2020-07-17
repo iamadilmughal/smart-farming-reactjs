@@ -1,0 +1,100 @@
+
+.foodName {
+  margin-right: 1%;
+}
+
+.price {
+  margin-left: 1%;
+}
+
+.description {
+  margin-left: 1%;
+}
+
+.foodType {
+  margin-left: 1%;
+}
+.description,
+.severityType {
+  width: 100%;
+}
+
+.diagnostics, .pMeasure{
+  display: inline-block;
+  width: 45%;
+  padding: 1%;
+}
+.pMeasure{
+  margin-left: 5%;
+}
+
+.description textarea{
+  height: 100px;
+}
+
+textarea{
+  padding: 10px 10px;
+  border-radius: 5px;
+  outline: none;
+}
+
+textarea::placeholder {
+  font-size: 1.2em;
+  font-weight: lighter;
+  color: #999;
+}
+
+
+.diagnostics textarea, .pMeasure textarea{
+  height: 80px;
+  width: 100%;
+}
+
+.severityType input, .severityType p{
+  display: inline-block;
+  width: 5%;
+}
+.severityType{
+  padding: 10px;
+}
+.pestName, .scientificName{
+  display: inline-block;
+  width: 45%;
+  padding: 1%;
+}
+
+.scientificName{
+  margin-left: 5%;
+}
+
+
+.submit {
+  width: 100%;
+  align-items: center;
+}
+
+.submit button {
+  background-color: #519e8a;
+  color: #fff;
+  border: 2px solid #fff;
+  margin-left: 1%;
+  margin-top: 30px;
+  width: 20%;
+  margin-top: 1em;
+  padding: 15px 10px;
+  font-size: 1em;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  margin-bottom: 0.25em;
+}
+
+.submit button:hover {
+  color: #519e8a;
+  background-color: #fff;
+  border: 2px solid #519e8a;
+}
+
+.submit small {
+  color: #999;
+  font-weight: lighter;
+}

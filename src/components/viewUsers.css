@@ -1,0 +1,11 @@
+.mainDiv{
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.774);
+    margin: 5%;
+    margin-left: 2%;
+    padding: 2% 3%;
+}
+
+td button{
+    text-align: center;
+}

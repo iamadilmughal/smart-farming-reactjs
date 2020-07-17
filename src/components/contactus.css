@@ -1,0 +1,68 @@
+.name {
+  margin-right: 1%;
+}
+
+.restaurant {
+  margin-left: 1%;
+}
+
+.email {
+  margin-left: 1%;
+}
+
+.phoneNumber {
+  margin-left: 1%;
+}
+
+.notes {
+  margin-left: 1%;
+}
+
+.name,
+.restaurant,
+.email,
+.phoneNumber,
+.notes {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.name,
+.restaurant,
+.email,
+.phoneNumber,
+.notes {
+  width: 100%;
+}
+
+.login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login button {
+  background-color: #519e8a;
+  color: #fff;
+  border: 2px solid #fff;
+  width: 100%;
+  margin-top: 1em;
+  padding: 8px 0px;
+  font-size: 1em;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  margin-bottom: 0.25em;
+}
+
+.login button:hover {
+  color: #519e8a;
+  background-color: #fff;
+  border: 2px solid #519e8a;
+}
+
+.login small {
+  color: #999;
+  font-weight: lighter;
+}

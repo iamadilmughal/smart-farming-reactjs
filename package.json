@@ -1,0 +1,54 @@
+{
+  "name": "lp",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.27",
+    "@fortawesome/free-solid-svg-icons": "^5.12.1",
+    "@fortawesome/react-fontawesome": "^0.1.8",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
+    "chart.js": "^2.9.3",
+    "email-validator": "^2.0.4",
+    "firebase": "^7.9.3",
+    "formik": "^2.0.6",
+    "md5": "^2.2.1",
+    "nexmo": "^2.6.0",
+    "react": "^16.12.0",
+    "react-alert": "^6.0.1",
+    "react-alert-template-basic": "^1.0.0",
+    "react-alert-template-mui": "^1.0.4",
+    "react-bootstrap": "^1.0.1",
+    "react-chartjs-2": "^2.9.0",
+    "react-confirm-alert": "^2.5.1",
+    "react-data-table-component": "^6.9.3",
+    "react-dom": "^16.12.0",
+    "react-mdl": "^1.11.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0",
+    "styled-components": "^5.1.1",
+    "universal-cookie": "^4.0.3",
+    "yup": "^0.27.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

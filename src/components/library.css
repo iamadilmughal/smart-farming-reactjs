@@ -1,0 +1,13 @@
+.itemCard{
+    width: 22%;
+    padding: 0.7%;
+    margin: 0.5%;
+    display: inline-block;
+    border: 1px rgba(128, 128, 128, 0.37);
+    box-shadow: rgba(128, 128, 128, 0.37) 5px 10px 10px 1px;
+}
+
+.itemTitleLink{
+    text-decoration: none;
+    color: green;
+}

@@ -1,0 +1,18 @@
+
+.disease-wrapper{
+  margin: 10px 30%;
+}
+
+.form-wrapper-add-disease{
+    padding: 30px 5%;
+}
+
+.addDiseaseForm div{
+  margin-top: 30px;
+  width: 100%
+}
+
+.addDiseaseForm textarea{
+  width: 100%;
+  height: 70px;
+}
