@@ -146,6 +146,7 @@ class Dashboard extends React.Component {
             <DataTable
               columns={columns}
               data={this.state.latestDetections}
+              className="item-data-table"
               noHeader
               pagination
             />

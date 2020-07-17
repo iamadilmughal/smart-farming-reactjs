@@ -32,7 +32,7 @@ class alogin extends Component {
 
       email: "",
       password: "",
-      value: "admin",
+      role: "admin",
       formErrors: {
         email: "",
         password: "",
@@ -52,11 +52,15 @@ class alogin extends Component {
       const alogin = {
         username: this.state.email,
         password: this.state.password,
-        category: this.state.value,
+        category: this.state.role,
       };
       console.log(alogin);
-      if (this.state.value === "admin") {
-        var isAuth = await Auth.login(this.state.email, this.state.password, true);
+      if (this.state.role === "admin") {
+        var isAuth = await Auth.login(
+          this.state.email,
+          this.state.password,
+          true
+        );
         console.log(isAuth);
         if (isAuth == true) {
           this.props.history.push("/dashboard");
@@ -65,7 +69,11 @@ class alogin extends Component {
           alert("Wrong Credentials");
         }
       } else {
-        var isAuth = await Auth.login(this.state.email, this.state.password, false);
+        var isAuth = await Auth.login(
+          this.state.email,
+          this.state.password,
+          false
+        );
         console.log(isAuth);
         if (isAuth == true) {
           this.props.history.push("/dashboard");
@@ -101,9 +109,10 @@ class alogin extends Component {
     const { formErrors } = this.state;
 
     return (
-      <div className="wrapper1">
-        <div className="form-wrapper">
-          <h1>Login</h1>
+      <div className="wrapper">
+        
+        <div className="form-wrapper-right-form">
+          <h1 class="page-heading">Login</h1>
           <form onSubmit={this.handleSubmit} noValidate>
             <div className="email">
               <label htmlFor="email">Username*</label>
@@ -134,13 +143,13 @@ class alogin extends Component {
             </div>
             <div className="role">
               <label htmlFor="role">Select Role*</label>
-              <select value={this.state.value} onChange={this.handleChange1}>
+              <select value={this.state.role} onChange={this.handleChange1}>
                 <option value="admin">Admin</option>
                 <option value="expert">Expert</option>
               </select>
             </div>
 
-            <div className="login">
+            <div className="submit">
               <button type="submit">Login</button>
             </div>
           </form>
