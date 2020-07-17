@@ -10,19 +10,13 @@ import ContactUs from './contactus';
 import Registration from './reg';
 import ChangePassword from './changep';
 import ProductTable from './viewAllPests';
-import RestaurantTable from './viewPlants';
-import EditRestaurant from './editr';
 import SendMessage from './message';
-import AddImage from './addrimage';
-import EditFood from './editfood';
 import Reservations from './viewUsers';
 import Orders from './viewExperts';
-import ProductImage from './addpimage';
 import Posts from './posts';
 import WritePost from './writePost'
 import Forum from './forum';
 import EditUser from './editUser';
-import SendNotification from './sendNotification';
 import Library from './library';
 import AddDisease from './addDisease';
 import ViewDisease from './viewDiseases';
@@ -30,6 +24,7 @@ import Item from './item';
 import Dashboard from './dashboard'
 import AddPlant from './addPlant';
 import AddPest from './addPest';
+import ViewPlant from './viewPlants';
 
 
 
@@ -45,20 +40,15 @@ const Main = () => (
     <ProtectedRoute path="/addPlant" component={AddPlant} />
     <Route path="/changep" component={ChangePassword} />
     <ProtectedRoute path="/pests" component={ProductTable} />
-    <ProtectedRoute path="/viewPlants" component={RestaurantTable} />
+    <ProtectedRoute path="/viewPlants" component={ViewPlant} />
     <Route path="/message" component={SendMessage} />
-    <Route path="/addrimage" component={AddImage} />
-    <Route path="/editr/:id" component={EditRestaurant} />
-    <Route path="/editfood/:id" component={EditFood} />
     <ProtectedAdminRoute path="/viewUsers" component={Reservations} />
     <ProtectedAdminRoute path="/viewExperts" component={Orders} />
-    <Route path="/addpimage" component={ProductImage} />
     <Route path="/community" component={Posts} />
     <ProtectedRoute path="/write" component={WritePost} />
     <Route path="/forum" component={Forum} />
     <Route path="/post/:id" component={Posts} />
     <ProtectedAdminRoute path="/edit/:type/:id" component={EditUser} />
-    <Route path="/sendNotification" component={SendNotification} />
     <ProtectedRoute path="/addDisease" component={AddDisease}/>
     <Route path="/library" component={Library}/>
     <ProtectedRoute path="/viewDiseases" component={ViewDisease}/>

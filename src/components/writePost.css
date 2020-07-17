@@ -64,6 +64,7 @@
   font-weight: lighter;
 }
 
-.description input {
+.description textarea {
   height: 300px;
+  width: 100%;
 }

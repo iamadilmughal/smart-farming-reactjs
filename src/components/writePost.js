@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./writePost.css";
 import Axios from "axios";
+import Auth from "./auth"
 
 const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
@@ -75,6 +76,12 @@ class WritePost extends Component {
     }
   };
 
+  componentDidMount(){
+    this.setState({
+      postedBy: Auth.getUsername()
+    })
+  }
+
   handleChange = e => {
     e.preventDefault();
     const { name, value } = e.target; //destructuring both name and its value.
@@ -116,7 +123,7 @@ class WritePost extends Component {
         </div>
         
         <div className="form-wrapper-right-form">
-          <h1>Write a Post</h1>
+          <h1 className="page-heading">Write a Post</h1>
           <form onSubmit={this.handleSubmit} id="postForm" noValidate>
             <div className="postName">
               <label htmlFor="postName">Post Title*</label>
@@ -135,12 +142,13 @@ class WritePost extends Component {
 
             <div className="description">
               <label htmlFor="description">Description*</label>
-              <input
+              <textarea
                 className={formErrors.description.length > 0 ? "error" : null}
                 placeholder="Description"
                 type="textarea"
                 name="description"
                 noValidate
+                multiple
                 onChange={this.handleChange}
               />
               {formErrors.description.length > 0 && (
@@ -155,6 +163,8 @@ class WritePost extends Component {
                 placeholder="Your Name"
                 type="textarea"
                 name="postedBy"
+                value={this.state.postedBy}
+                disabled
                 noValidate
                 onChange={this.handleChange}
               />
