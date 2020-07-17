@@ -48,7 +48,7 @@ function ViewPlant() {
       maxWidth: "5%",
       cell: (row) => (
         <div>
-          <Link to={"/item/disease/" + row._id}>
+          <Link to={"/item/plant/" + row._id}>
             <button className="table-view-button table-button">
               <FontAwesomeIcon
                 className="view-icon table-button-icon"
@@ -105,7 +105,7 @@ function ViewPlant() {
   const deletePlant = (id) => {
     console.log("Clicked");
     axios
-      .delete("http://localhost:3000/plants/" + id)
+      .delete("http://localhost:3000/plant/" + id)
       .then((response) => {
         if (response.data.status === 1) {
           alert.show("Plant Deleted Successfully");
@@ -115,7 +115,7 @@ function ViewPlant() {
       })
       .catch((error) => {
         console.log(error);
-        alert("Some Error Occured");
+        alert.error("Some Error Occured", { title: "Error" });
       });
   };
 

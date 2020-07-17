@@ -22,6 +22,7 @@ function Item(props) {
     image,
     scientificName,
     severity,
+    itemSeason,
   } = "";
   var cures = [];
 
@@ -43,9 +44,7 @@ function Item(props) {
             })
             .then((response) => {
               console.log(response.data.result);
-              // causedBy = response.data;
               setCausedBy(response.data.result);
-              // console.log(causedBy)
             })
             .catch(function (error) {
               console.log(error);
@@ -72,6 +71,15 @@ function Item(props) {
     image = item.pestImage;
     severity = item.severity;
     scientificName = item.scientificName;
+  } else if (type === "plant") {
+    itemName = item.plantName;
+    itemDescription = item.description;
+    itemSeason = item.season;
+    image = item.plantImage;
+    // var pests = item.pests;
+    // if (pests) {
+    //   setCausedBy(pests);
+    // }
   }
 
   const sidebar = () => {
@@ -98,52 +106,16 @@ function Item(props) {
             {type === "disease" ? "Caused By" : "Scientific Name"}
           </h4>
           <p className="item-div-content">
-            {type === "disease" ? items : scientificName}
+            {type === "disease" || "plant" ? items : scientificName}
           </p>
         </div>
       </div>
     );
   };
 
-  const prevention = (cures) => {
-    var items = cures.map((item, key) => (
-      <li>
-        <FontAwesomeIcon
-          className="item-heading-icon"
-          icon={faAngleRight}
-          color="#6ec259"
-        />
-        {item}
-      </li>
-    ));
-    return <ul>{items}</ul>;
-  };
-
-  const postBody = () => {
-    // console.log(item);
-    // var curesDisplay = cures.map((item, key) => (
-    //   <p className="item-div-content" key={key}>
-    //     {item}
-    //   </p>
-    // ));
+  const sympsAndCures = () => {
     return (
-      <div className="item-body-div">
-        <div className="item-heading-div">
-          <h3 className="page-heading">{itemName}</h3>
-        </div>
-        <div className="item-image-div">
-          <img className="item-image" src={image} alt={itemName} />
-        </div>
-        <div className="item-desc-div">
-          <h3 className="item-div-heading">
-            <FontAwesomeIcon
-              className="item-heading-icon"
-              icon={faInfoCircle}
-            />
-            Description
-          </h3>
-          <p className="item-div-content">{itemDescription}</p>
-        </div>
+      <div>
         <div className="item-symp-div">
           <h3 className="item-div-heading">
             <FontAwesomeIcon
@@ -168,9 +140,33 @@ function Item(props) {
     );
   };
 
+  const postBody = () => {
+    return (
+      <div className="item-body-div">
+        <div className="item-heading-div">
+          <h3 className="page-heading">{itemName}</h3>
+        </div>
+        <div className="item-image-div">
+          <img className="item-image" src={image} alt={itemName} />
+        </div>
+        <div className="item-desc-div">
+          <h3 className="item-div-heading">
+            <FontAwesomeIcon
+              className="item-heading-icon"
+              icon={faInfoCircle}
+            />
+            Description
+          </h3>
+          <p className="item-div-content">{itemDescription}</p>
+        </div>
+        {type == "plant" ? "" : sympsAndCures()}
+      </div>
+    );
+  };
+
   return (
     <div className="item-page-body">
-      {sidebar()}
+      {type == "plant" ? "" : sidebar()}
       {postBody()}
     </div>
   );
