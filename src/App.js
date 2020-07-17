@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Layout, Header, Navigation, Drawer, Content, Footer } from "react-mdl";
 import "./App.css";
 import Main from "./components/main";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Auth from "./components/auth";
 import {
@@ -23,8 +23,13 @@ import {
   faUser,
   faUserGraduate,
 } from "@fortawesome/free-solid-svg-icons";
+import { useAlert } from "react-alert";
 
-function App() {
+function App(props) {
+  
+  const alert = useAlert();
+  const history = useHistory()
+
   const showNavigation = () => {
     if (!Auth.isAuthenticated()) {
       return (
@@ -77,7 +82,7 @@ function App() {
             <FontAwesomeIcon icon={faTree} style={{ marginRight: "10px" }} />
             Plants
           </Link>
-          <Link to="/viewPests">
+          <Link to="/pests">
             <FontAwesomeIcon icon={faBug} style={{ marginRight: "10px" }} />
             Pests
           </Link>
@@ -101,8 +106,25 @@ function App() {
             View Diseases
           </Link>
           <Link
-            to={Auth.isAuthenticated() ? "/logout" : "/alogin"}
+            to={Auth.isAuthenticated() ? "" : "/alogin"}
             style={{ backgroundColor: "white", color: "green" }}
+            onClick={() => {
+              if (Auth.isAuthenticated()) {
+                alert.show("Are You Sure to Logout? ", {
+                  title: "Logout",
+                  closeCopy: "No. Dont",
+                  actions: [
+                    {
+                      copy: "Yes. Logout",
+                      onClick: () => {
+                        Auth.logout();
+                        history.push("/");
+                      },
+                    },
+                  ],
+                });
+              }
+            }}
           >
             <FontAwesomeIcon
               icon={Auth.isAuthenticated() ? faSignOutAlt : faSignInAlt}
@@ -126,7 +148,7 @@ function App() {
             <FontAwesomeIcon icon={faTree} style={{ marginRight: "10px" }} />
             Plants
           </Link>
-          <Link to="/viewPests">
+          <Link to="/pests">
             <FontAwesomeIcon icon={faBug} style={{ marginRight: "10px" }} />
             Pests
           </Link>
@@ -139,8 +161,25 @@ function App() {
             View Diseases
           </Link>
           <Link
-            to={Auth.isAuthenticated() ? "/logout" : "/alogin"}
+            to={Auth.isAuthenticated() ? "/" : "/alogin"}
             style={{ backgroundColor: "white", color: "green" }}
+            onClick={() => {
+              if (Auth.isAuthenticated()) {
+                alert.show("Are You Sure to Logout? ", {
+                  title: "Logout",
+                  closeCopy: "No. Cancel",
+                  actions: [
+                    {
+                      copy: "Yes. Logout",
+                      onClick: () => {
+                        Auth.logout();
+                        history.push("/");
+                      },
+                    },
+                  ],
+                });
+              }
+            }}
           >
             <FontAwesomeIcon
               icon={Auth.isAuthenticated() ? faSignOutAlt : faSignInAlt}

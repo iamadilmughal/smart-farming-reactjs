@@ -12,28 +12,29 @@ class faq extends React.Component {
       return (
         <div className="b">
           <div className="qDiv">
-            <p className="question">
-              How can I start using Digital Bites technology in my restaurant?
-            </p>
+            <p className="question">What is Smart Farming?</p>
             <p className="answer">
-              Process is pretty easy, you can buy our photoshoot set and take
-              360 pictures of your food or just book our photographer. Please
-              contact us for inquiries.
+              Smart Farming is the latest addition to the efforts of modernizing
+              agriculture so that more food can be produced through less effort
             </p>
           </div>
 
           <div className="qDiv">
-            <p className="question">Can I track campaign analytics?</p>
+            <p className="question">What Can I do with Smart Farming?</p>
             <p className="answer">
-              We are working hard to make it ready as soon as possible. Please
-              subscribe and be the first to hear about.
+              Through our Service, you can share your knowledge and help the
+              farmers in solving their problems. You can keep track of the
+              Diseases detected in various areas and provide solution to these
+              problems.
             </p>
           </div>
           <div className="qDiv">
-            <p className="question">How can I manage my menu?</p>
+            <p className="question">Will Smart Farming Pay me? </p>
             <p className="answer">
-              You can manage your menu items through, Digital Bites admin
-              interface
+              Currently, we don't pay the experts and we are trying to join
+              those experts who are willing to help others voluntarily. However,
+              we do have plans to start paid services for experts in the near
+              future.
             </p>
           </div>
         </div>
@@ -44,17 +45,20 @@ class faq extends React.Component {
           <div className="qDiv">
             <p className="question">How do I use it?</p>
             <p className="answer">
-              Can be done online when ordering takeout or delivery as well as in
-              store
+              You can start using our services by just download the app and
+              registering yourselves.
             </p>
           </div>
           <div className="qDiv">
             <p className="question">Is it free?</p>
-            <p>Digital Bites is free to use</p>
+            <p>Smart Farming is Free to use for everyone. </p>
           </div>
           <div className="qDiv">
             <p className="question">Which phones are supported?</p>
-            <p>Digital Bites is available on Apple IOS</p>
+            <p>
+              Smart Farming application is available on both Apple iOS and
+              Android Phones
+            </p>
           </div>
         </div>
       );
@@ -66,10 +70,10 @@ class faq extends React.Component {
       <div className="tabs">
         <Tabs
           activeTab={this.state.activeTab}
-          onChange={tabId => this.setState({ activeTab: tabId })}
+          onChange={(tabId) => this.setState({ activeTab: tabId })}
           ripple
         >
-          <Tab>FAQs for Business</Tab>
+          <Tab>FAQs for Experts</Tab>
           <Tab>FAQs for Users</Tab>
         </Tabs>
         <section className="faqs">{this.toggleCategories()}</section>

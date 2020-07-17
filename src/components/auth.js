@@ -93,10 +93,15 @@ class Auth {
   }
 
   logout() {
-    if (this.authenticated === true && this.cookies.get("username") != null) {
+    if (
+      localStorage.getItem("authenticated") == "true" &&
+      localStorage.getItem("username") != null
+    ) {
+      console.log("Logout Called")
+      this.authenticated = false;
       localStorage.removeItem("username");
       localStorage.removeItem("type");
-      this.authenticated = false;
+      localStorage.removeItem("authenticated");
     }
     return true;
   }

@@ -143,6 +143,9 @@ function ViewExperts() {
   };
 
   const deleteExpert = (uname) => {
+    if (!window.confirm("Are you sure you wish to delete this item?")) {
+      return;
+    }
     console.log("Clicked");
     Axios.delete("http://localhost:3000/expert/delete/" + uname)
       .then((response) => {
