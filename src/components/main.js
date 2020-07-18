@@ -25,6 +25,7 @@ import Dashboard from './dashboard'
 import AddPlant from './addPlant';
 import AddPest from './addPest';
 import ViewPlant from './viewPlants';
+import PDFShow from './pdf';
 
 
 
@@ -34,6 +35,7 @@ const Main = () => (
     <Route exact path="/" component={Landing} />
     <Route path="/alogin" component={AdminLogin} />
     <Route path="/faq" component={FAQ} />
+    <Route path="/PDFShow" component={PDFShow} />
     <Route path="/contactus" component={ContactUs} />
     <ProtectedAdminRoute path="/reg" component={Registration} />
     <ProtectedRoute path="/addPest" component={AddPest} />

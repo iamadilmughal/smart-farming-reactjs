@@ -181,7 +181,7 @@ class Posts extends React.Component {
         <form onSubmit={this.handleSubmit} noValidate>
           <div className="username">
             <input
-              placeholder="Username"
+              placeholder="Your Name"
               type="text"
               name="username"
               onChange={(evt) => {

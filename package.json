@@ -12,6 +12,8 @@
     "email-validator": "^2.0.4",
     "firebase": "^7.9.3",
     "formik": "^2.0.6",
+    "html2canvas": "^1.0.0-rc.5",
+    "jspdf": "^1.5.3",
     "md5": "^2.2.1",
     "nexmo": "^2.6.0",
     "react": "^16.12.0",

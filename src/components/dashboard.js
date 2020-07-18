@@ -1,7 +1,8 @@
 import React from "react";
-import { Pie, Doughnut } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import "./dashboard.css";
 import DataTable from "react-data-table-component";
+import ListItemLink from "./ListItemLink";
 
 import Axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,6 +11,10 @@ import {
   faBug,
   faLeaf,
   faMobile,
+  faHandMiddleFinger,
+  faQuestion,
+  faStarOfLife,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons";
 
 // import { Link, Redirect } from "react-router-dom";
@@ -18,25 +23,56 @@ import {
 const columns = [
   {
     name: "Detection Image",
-    selector: "diseaseImage",
+    selector: "imageURL",
     cell: (row) => (
       <div>
-        <img
-          className="row-image"
-          src={row.diseaseImage}
-          alt={row.diseaseName}
-        />
+        <img className="row-image" src={row.imageURL} alt={row.Prediction} />
       </div>
     ),
     sortable: false,
   },
   {
+    name: "Type",
+    selector: "Detected",
+    cell: (row) => (
+      <div>
+        <FontAwesomeIcon
+          icon={
+            row.Detected == "Plant Disease"
+              ? faLeaf
+              : row.Detected == "Pests"
+              ? faBug
+              : faStarOfLife
+          }
+        />
+      </div>
+    ),
+  },
+  {
     name: "Disease Detected",
-    selector: "diseaseName",
+    selector: "Prediction",
   },
   {
     name: "Date",
-    selector: "dateDetected",
+    selector: "DatePublished",
+  },
+
+  {
+    name: "Feedback",
+    selector: "FeedBack",
+    cell: (row) => (
+      <div>
+        <p>
+          {row.FeedBack ? row.FeedBack + "\t" : "N/A"}
+          {row.FeedBack ? <FontAwesomeIcon icon={faStar} /> : ""}
+        </p>
+      </div>
+    ),
+  },
+
+  {
+    name: "Detected By",
+    selector: "Farmer",
   },
 ];
 
@@ -56,10 +92,10 @@ class Dashboard extends React.Component {
       Authorization: "Bearer " + this.token,
     };
 
-    Axios.get("http://localhost:3000/disease/")
+    Axios.get("https://smartfarmingnodeserver.herokuapp.com/feedback")
       .then((response) => {
-        this.setState({ latestDetections: response.data.DiseasesFound });
-        console.log(response.data.DiseasesFound);
+        this.setState({ latestDetections: response.data.results });
+        console.log(response.data.results);
         // alert.show("Data Loaded Successfully", {
         //   title: "Data Has been Loaded",
         // });
@@ -69,7 +105,7 @@ class Dashboard extends React.Component {
       });
 
     Axios.get(
-      "https://smartfarmingnodeserver.herokuapp.com/plant/plantreport",
+      "https://smartfarmingnodeserver.herokuapp.com/feedback/plantreport",
       { headers: headers }
     ) //check the localhost link
 
@@ -88,9 +124,20 @@ class Dashboard extends React.Component {
             labels: labels_,
             datasets: [
               {
-                label: "Customers",
+                label: "Detections",
                 data: data_,
-                backgroundColor: ["#006400", "#B21F00", "#C9DE00", "#2FDE00"],
+                backgroundColor: [
+                  "#3949ab ",
+                  "#2196f3",
+                  "#26c6da",
+                  "#d4e157",
+                  "#673ab7",
+                  "#e91e63",
+                  "#66bb6a",
+                  "#c0ca33",
+                  "#fdd835",
+                  "#3949ab",
+                ],
                 hoverBackgroundColor: [
                   "#501800",
                   "#4B5000",
@@ -112,28 +159,28 @@ class Dashboard extends React.Component {
       <div className="content-wrapper dashboard-page-body">
         <section className="numbers-section">
           <div className="number-div">
-            <h2 className="number-count">12</h2>
+            <h2 className="number-count">1</h2>
             <h5 className="number-heading">
               <FontAwesomeIcon className="number-icon" icon={faUser} />
               Total Users
             </h5>
           </div>
           <div className="number-div">
-            <h2 className="number-count">42</h2>
+            <h2 className="number-count">5</h2>
             <h5 className="number-heading">
               <FontAwesomeIcon className="number-icon" icon={faBug} />
               Total Pests
             </h5>
           </div>
           <div className="number-div">
-            <h2 className="number-count">30</h2>
+            <h2 className="number-count">4</h2>
             <h5 className="number-heading">
               <FontAwesomeIcon className="number-icon" icon={faLeaf} />
               Total Plants
             </h5>
           </div>
           <div className="number-div">
-            <h2 className="number-count">32</h2>
+            <h2 className="number-count">10</h2>
             <h5 className="number-heading">
               <FontAwesomeIcon className="number-icon" icon={faMobile} />
               Total Detections
@@ -143,6 +190,7 @@ class Dashboard extends React.Component {
         <section className="recent-detections-section">
           <div className="recent-detections-div">
             <h3 className="dashboard-div-heading">Recent Detections</h3>
+
             <DataTable
               columns={columns}
               data={this.state.latestDetections}
@@ -150,14 +198,25 @@ class Dashboard extends React.Component {
               noHeader
               pagination
             />
+            <ListItemLink
+              to={{
+                pathname: "/PDFShow",
+                passed: { data: this.state.latestDetections },
+              }}
+              variant="contained"
+              text="Generate PDF"
+            />
           </div>
         </section>
-        <section className="content">
-          <div className="container-fluid">
+        <section className="graph-secion">
+          <div className="graph-secion-div">
+            <h3 className="dashboard-div-heading">Detection Graph</h3>
+
             {
-              <div>
+              <div className="chart-div">
                 <Doughnut
                   data={this.state.chartData}
+                  className="detection-chart"
                   options={{
                     title: {
                       display: true,

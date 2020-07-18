@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./addPlant.css";
 import Axios from "axios";
+import { useAlert } from "react-alert";
 
 const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
@@ -8,6 +9,8 @@ const formValid = ({ formErrors, ...rest }) => {
 };
 
 class AddPlant extends Component {
+   
+ 
   constructor(props) {
     super(props);
     this.handleChange2 = this.handleDiseaseSelect.bind(this);
@@ -118,7 +121,8 @@ class AddPlant extends Component {
       } else {
         Axios.post("http://localhost:3000/plant", data)
           .then((res) => {
-            if (res.data.status === 1) {
+            console.log(res)
+            if (res.status === 200) {
               alert("Plant Added Successfully");
               this.props.history.push("/viewPlants")
             } else {
