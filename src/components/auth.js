@@ -26,7 +26,7 @@ class Auth {
           this.authenticated = true;
         }
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
         this.authenticated = false;
       });
@@ -97,7 +97,7 @@ class Auth {
       localStorage.getItem("authenticated") == "true" &&
       localStorage.getItem("username") != null
     ) {
-      console.log("Logout Called")
+      console.log("Logout Called");
       this.authenticated = false;
       localStorage.removeItem("username");
       localStorage.removeItem("type");

@@ -54,7 +54,7 @@ class message extends Component {
 
     if (formValid(this.state)) {
       const from = this.state.phoneNumber;
-      const to = "923085991266";
+      const to = "923345056112";
       const text = this.state.message;
 
       const msg = "Message: " + text + "FROM: " + from;
@@ -101,7 +101,7 @@ class message extends Component {
     return (
       <div className="wrapper1">
         <div className="form-wrapper">
-          <h1>Send Message</h1>
+          <h1 className="page-heading">Send Message</h1>
           <form onSubmit={this.handleSubmit} noValidate>
             <div className="name">
               <label htmlFor="name">Name*</label>

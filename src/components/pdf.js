@@ -184,7 +184,7 @@ export default class PDFShow extends Component {
         <Button
           style={{ marginLeft: "2%" }}
           component={Link}
-          to="./PatientsMain"
+          to="./dashboard"
           variant="contained"
           color="secondary"
         >

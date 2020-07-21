@@ -40,9 +40,16 @@ class alogin extends Component {
     };
   }
 
+  componentWillMount() {
+    if (Auth.isAuthenticated() == true) {
+      alert("You are already Logged in. Redirecting you back to Dashboard");
+      this.props.history.push("/dashboard");
+    }
+  }
+
   handleChange1(event) {
     event.preventDefault();
-    this.setState({ value: event.target.value });
+    this.setState({ role: event.target.value });
   }
 
   handleSubmit = async (e) => {
@@ -110,7 +117,6 @@ class alogin extends Component {
 
     return (
       <div className="wrapper">
-        
         <div className="form-wrapper-right-form">
           <h1 class="page-heading">Login</h1>
           <form onSubmit={this.handleSubmit} noValidate>
