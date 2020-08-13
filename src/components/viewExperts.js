@@ -25,7 +25,7 @@ function ViewExperts() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/expert")
+      .get("https://smart-farming-backend.herokuapp.com/expert")
       .then((response) => {
         console.log(response.data);
         setList(response.data);
@@ -35,7 +35,7 @@ function ViewExperts() {
         console.log(error);
       });
     axios
-      .get("http://localhost:3000/admin")
+      .get("https://smart-farming-backend.herokuapp.com/admin")
       .then((response) => {
         console.log(response.data);
         setAdminList(response.data);
@@ -198,9 +198,9 @@ function ViewExperts() {
   ];
 
   const changeRating = (uprate, uname) => {
-    var url = "http://localhost:3000/expert/downrate/";
+    var url = "https://smart-farming-backend.herokuapp.com/expert/downrate/";
     if (uprate) {
-      url = "http://localhost:3000/expert/uprate/";
+      url = "https://smart-farming-backend.herokuapp.com/expert/uprate/";
     }
     Axios.put(url, { username: uname })
       .then((response) => {
@@ -221,7 +221,7 @@ function ViewExperts() {
       return;
     }
     if (isAdmin) {
-      Axios.delete("http://localhost:3000/admin/" + uname)
+      Axios.delete("https://smart-farming-backend.herokuapp.com/admin/" + uname)
         .then((response) => {
           if (response.data.status === 1) {
             alert.show("Admin Deleted Successfully");
@@ -235,7 +235,7 @@ function ViewExperts() {
         });
       return;
     } else {
-      Axios.delete("http://localhost:3000/expert/" + uname)
+      Axios.delete("https://smart-farming-backend.herokuapp.com/expert/" + uname)
         .then((response) => {
           if (response.data.status === 1) {
             alert.show("Expert Deleted Successfully");

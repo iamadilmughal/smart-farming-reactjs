@@ -105,7 +105,7 @@ function ViewAllPests() {
   const deletePest = (id) => {
     console.log("Clicked");
     axios
-      .delete("http://localhost:3000/pest/" + id)
+      .delete("https://smart-farming-backend.herokuapp.com/pest/" + id)
       .then((response) => {
         if (response.data.status == 1) {
           alert.show("Pest Deleted Successfully");
@@ -132,7 +132,7 @@ function ViewAllPests() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/pest/")
+      .get("https://smart-farming-backend.herokuapp.com/pest/")
       .then((response) => {
         setTodos(response.data.result);
         setCurrentResults(response.data.result);

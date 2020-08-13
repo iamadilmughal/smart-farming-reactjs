@@ -50,7 +50,7 @@ class AddPest extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     if (id != null) {
-      Axios.get("http://localhost:3000/pest/" + id)
+      Axios.get("https://smart-farming-backend.herokuapp.com/pest/" + id)
         .then((response) => {
           this.setState({
             editMode: true,
@@ -105,7 +105,7 @@ class AddPest extends Component {
   
         console.log(data);
   
-        Axios.put("http://localhost:3000/pest/", data)
+        Axios.put("https://smart-farming-backend.herokuapp.com/pest/", data)
           .then((res) => {
             console.log(res.data);
             if (res.data.status === 1) {
@@ -130,7 +130,7 @@ class AddPest extends Component {
   
         console.log(data);
   
-        Axios.post("http://localhost:3000/pest/", data)
+        Axios.post("https://smart-farming-backend.herokuapp.com/pest/", data)
           .then((res) => {
             console.log(res.data);
             if (res.data.status === 1) {

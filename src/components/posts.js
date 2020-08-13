@@ -27,7 +27,7 @@ class Posts extends React.Component {
   componentDidMount() {
     let id = this.props.match.params.id;
     axios
-      .get("http://localhost:3000/community/post/" + id)
+      .get("https://smart-farming-backend.herokuapp.com/community/post/" + id)
       .then((response) => {
         this.setState({
           todos: response.data.results,
@@ -104,7 +104,7 @@ class Posts extends React.Component {
 
     console.log(data);
     axios
-      .post("http://localhost:3000/community/comment", data)
+      .post("https://smart-farming-backend.herokuapp.com/community/comment", data)
       .then((res) => {
         if (res.data.status === 1) {
           alert("Comment Posted Successfully");
@@ -125,7 +125,7 @@ class Posts extends React.Component {
               postID: this.state.todos._id,
             };
             axios
-              .put("http://localhost:3000/community/upvote/", data)
+              .put("https://smart-farming-backend.herokuapp.com/community/upvote/", data)
               .then((response) => {
                 if (response.data.status === 1) {
                   alert("Answer Upvoted Successfully");
@@ -152,7 +152,7 @@ class Posts extends React.Component {
               postID: this.state.todos._id,
             };
             axios
-              .put("http://localhost:3000/community/downvote/", data)
+              .put("https://smart-farming-backend.herokuapp.com/community/downvote/", data)
               .then((response) => {
                 if (response.data.status === 1) {
                   alert("Answer Downvoted Successfully");

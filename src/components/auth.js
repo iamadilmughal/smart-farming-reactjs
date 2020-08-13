@@ -16,7 +16,7 @@ class Auth {
 
     var toReturn = false;
 
-    await Axios.post("http://localhost:3000/admin/login", data)
+    await Axios.post("https://smart-farming-backend.herokuapp.com/admin/login", data)
       .then((response) => {
         this.dataFetched = true;
         if (response.data.status === 0) {
@@ -42,7 +42,7 @@ class Auth {
       password: md5(password),
     };
 
-    await Axios.post("http://localhost:3000/expert/login", data)
+    await Axios.post("https://smart-farming-backend.herokuapp.com/expert/login", data)
       .then((response) => {
         this.dataFetched = true;
         console.log(response.data);

@@ -97,7 +97,7 @@ function ViewUsers() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/farmer")
+      .get("https://smart-farming-backend.herokuapp.com/farmer")
       .then((response) => {
         // this.setState({ todos: response.data });
         setTodos(response.data);
@@ -115,7 +115,7 @@ function ViewUsers() {
     }
     console.log("Clicked");
     axios
-      .delete("http://localhost:3000/farmer/" + uname)
+      .delete("https://smart-farming-backend.herokuapp.com/farmer/" + uname)
       .then((response) => {
         if (response.data.status === 1) {
           alert.show("Farmer Deleted Successfully", { title: "Success" });

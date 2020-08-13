@@ -43,7 +43,7 @@ class AddDisease extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     if (id != null) {
-      Axios.get("http://localhost:3000/disease/" + id)
+      Axios.get("https://smart-farming-backend.herokuapp.com/disease/" + id)
         .then((response) => {
           this.setState({
             editMode: true,
@@ -126,7 +126,7 @@ class AddDisease extends Component {
       console.log(data);
 
       if (this.state.editMode) {
-        Axios.put("http://localhost:3000/disease/", data)
+        Axios.put("https://smart-farming-backend.herokuapp.com/disease/", data)
           .then((res) => {
             if (res.data.status === 1) {
               alert("Disease Updated Successfully");
@@ -139,7 +139,7 @@ class AddDisease extends Component {
             console.log(error);
           });
       } else {
-        Axios.post("http://localhost:3000/disease", data)
+        Axios.post("https://smart-farming-backend.herokuapp.com/disease", data)
           .then((res) => {
             if (res.data.status === 1) {
               alert("Disease Added Successfully");
@@ -158,7 +158,7 @@ class AddDisease extends Component {
   };
 
   loadPestOptions() {
-    Axios.get("http://localhost:3000/pest/")
+    Axios.get("https://smart-farming-backend.herokuapp.com/pest/")
       .then((response) => {
         this.setState({ pestOption: response.data.result });
         console.log(response.data);

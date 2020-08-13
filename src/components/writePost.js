@@ -61,7 +61,7 @@ class WritePost extends Component {
 
 
       console.log(data);
-      Axios.post("http://localhost:3000/community/", data)
+      Axios.post("https://smart-farming-backend.herokuapp.com/community/", data)
         .then(res => {
           if(res.data.status === 1){
             alert('Post Added Successfully');

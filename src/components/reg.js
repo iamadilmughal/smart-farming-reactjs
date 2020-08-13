@@ -91,7 +91,7 @@ class reg extends Component {
         }
 
         if (this.state.category == "expert") {
-          Axios.post("http://localhost:3000/expert/", data)
+          Axios.post("https://smart-farming-backend.herokuapp.com/expert/", data)
             .then((res) => {
               console.log(res.data);
               if (res.data.status === 1) {
@@ -109,7 +109,7 @@ class reg extends Component {
               console.log(error);
             });
         } else if (this.state.category == "admin") {
-          Axios.post("http://localhost:3000/admin/", data)
+          Axios.post("https://smart-farming-backend.herokuapp.com/admin/", data)
             .then((res) => {
               console.log(res.data);
               if (res.data.status === 1) {
@@ -127,7 +127,7 @@ class reg extends Component {
               console.log(error);
             });
         } else {
-          Axios.post("http://localhost:3000/farmer/", data)
+          Axios.post("https://smart-farming-backend.herokuapp.com/farmer/", data)
             .then((res) => {
               console.log(res.data);
               if (res.data.status === 1) {

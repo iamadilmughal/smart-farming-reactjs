@@ -34,7 +34,7 @@ class AddPlant extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     if (id != null) {
-      Axios.get("http://localhost:3000/plant/" + id)
+      Axios.get("https://smart-farming-backend.herokuapp.com/plant/" + id)
         .then((response) => {
           console.log(response.data);
           this.setState({
@@ -106,7 +106,7 @@ class AddPlant extends Component {
 
       if (this.state.editMode) {
         data.append("id", this.state._id);
-        Axios.put("http://localhost:3000/plant", data)
+        Axios.put("https://smart-farming-backend.herokuapp.com/plant", data)
           .then((res) => {
             if (res.data.status === 1) {
               alert("Plant Updated Successfully");
@@ -119,7 +119,7 @@ class AddPlant extends Component {
             console.log(error);
           });
       } else {
-        Axios.post("http://localhost:3000/plant", data)
+        Axios.post("https://smart-farming-backend.herokuapp.com/plant", data)
           .then((res) => {
             console.log(res)
             if (res.status === 200) {
@@ -139,7 +139,7 @@ class AddPlant extends Component {
   };
 
   loadPestOptions() {
-    Axios.get("http://localhost:3000/pest/")
+    Axios.get("https://smart-farming-backend.herokuapp.com/pest/")
       .then((response) => {
         this.setState({ pestOptions: response.data.result });
         console.log(response.data);

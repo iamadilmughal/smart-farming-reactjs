@@ -53,7 +53,7 @@ class EditUser extends Component {
     let type = this.props.match.params.type;
 
     if (type === "expert") {
-      Axios.get("http://localhost:3000/expert/view/" + id)
+      Axios.get("https://smart-farming-backend.herokuapp.com/expert/view/" + id)
         .then(response => {
           this.setState({
             category: "expert"
@@ -84,7 +84,7 @@ class EditUser extends Component {
           console.log(error);
         });
     } else if (type === "admin") {
-      Axios.get("http://localhost:3000/admin/view/" + id)
+      Axios.get("https://smart-farming-backend.herokuapp.com/admin/view/" + id)
         .then(response => {
           this.setState({
             category: "admin"
@@ -153,7 +153,7 @@ class EditUser extends Component {
       console.log(data);
 
       if (this.state.category == "expert") {
-        Axios.put("http://localhost:3000/expert/edit/", data)
+        Axios.put("https://smart-farming-backend.herokuapp.com/expert/edit/", data)
           .then(res => {
             console.log(res.data);
             if (res.data.status === 1) {
@@ -170,7 +170,7 @@ class EditUser extends Component {
             console.log(error);
           });
       } else if(this.state.category === "admin") {
-        Axios.put("http://localhost:3000/admin/edit", data)
+        Axios.put("https://smart-farming-backend.herokuapp.com/admin/edit", data)
           .then(res => {
             console.log(res.data);
             if (res.data.status === 1) {

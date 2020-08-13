@@ -114,7 +114,7 @@ function ViewDisease() {
     }
     console.log("Clicked");
     axios
-      .delete("http://localhost:3000/disease/" + id)
+      .delete("https://smart-farming-backend.herokuapp.com/disease/" + id)
       .then((response) => {
         if (response.data.status === 1) {
           alert.success("Disease Deleted Successfully", { title: "Success" });
@@ -143,7 +143,7 @@ function ViewDisease() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/disease/")
+      .get("https://smart-farming-backend.herokuapp.com/disease/")
       .then((response) => {
         setTodos(response.data.DiseasesFound);
         setCurrentResults(response.data.DiseasesFound);

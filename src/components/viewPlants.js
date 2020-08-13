@@ -105,7 +105,7 @@ function ViewPlant() {
   const deletePlant = (id) => {
     console.log("Clicked");
     axios
-      .delete("http://localhost:3000/plant/" + id)
+      .delete("https://smart-farming-backend.herokuapp.com/plant/" + id)
       .then((response) => {
         if (response.data.status === 1) {
           alert.show("Plant Deleted Successfully");
@@ -121,7 +121,7 @@ function ViewPlant() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/plant/")
+      .get("https://smart-farming-backend.herokuapp.com/plant/")
       .then((response) => {
         setTodos(response.data);
         setCurrentResults(response.data);

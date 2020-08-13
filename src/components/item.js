@@ -33,13 +33,13 @@ function Item(props) {
     // console.log(props.match.params.type);
 
     axios
-      .get("http://localhost:3000/" + props.match.params.type + "/" + id)
+      .get("https://smart-farming-backend.herokuapp.com/" + props.match.params.type + "/" + id)
       .then((response) => {
         console.log(response.data);
         setItem(response.data);
         if (props.match.params.type === "disease") {
           axios
-            .post("http://localhost:3000/pest/list/", {
+            .post("https://smart-farming-backend.herokuapp.com/pest/list/", {
               list: response.data.causedBy,
             })
             .then((response) => {

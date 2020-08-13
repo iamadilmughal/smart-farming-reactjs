@@ -18,7 +18,7 @@ class Forum extends React.Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:3000/community")
+      .get("https://smart-farming-backend.herokuapp.com/community")
       .then((response) => {
         this.setState({ todos: response.data, currentResults: response.data});
       })
