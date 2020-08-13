@@ -6,36 +6,29 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCalendarAlt,
   faUserAlt,
-  faPlusCircle
+  faPlusCircle,
+  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
-
-
 
 class Forum extends React.Component {
   constructor() {
     super();
-    this.state = { todos: [] };
+    this.state = { todos: [], currentResults: [] };
   }
 
   componentDidMount() {
     axios
       .get("http://localhost:3000/community")
-      .then(response => {
-        this.setState({ todos: response.data });
+      .then((response) => {
+        this.setState({ todos: response.data, currentResults: response.data});
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
   todoList() {
-    return this.state.todos.map((todos, index) => {
-      const {
-        _id,
-        postTitle,
-        postDescription,
-        datePosted,
-        postedBy
-      } = todos; //destructuring
+    return this.state.currentResults.map((todos, index) => {
+      const { _id, postTitle, postDescription, datePosted, postedBy } = todos; //destructuring
       return (
         <div className="postCard">
           <a className="forum-post-title" href={"/post/" + _id}>
@@ -54,6 +47,20 @@ class Forum extends React.Component {
     });
   }
 
+  
+  onSearchHandler = (event) => {
+    var query = event.target.value.toLowerCase();
+    this.setState({
+      currentResults:this.state.todos.filter(
+        (x) =>
+          x.postTitle.toLowerCase().includes(query) ||
+          x.postDescription.toLowerCase().includes(query) ||
+          x.postedBy.toLowerCase().includes(query) 
+      )
+    }
+    );
+  };
+
   trunString(s) {
     if (s.length > 200) {
       return s.substring(0, 199) + "...";
@@ -66,6 +73,16 @@ class Forum extends React.Component {
     return (
       <div className="forum-post-body">
         <h1 className="view-forum-heading">Form Posts</h1>
+        <input
+            type="text"
+            onChange={this.onSearchHandler}
+            placeholder="Enter here to Search"
+            className="post-search-bar"
+          />
+          <FontAwesomeIcon 
+          className="search-bar-icon"
+          icon = {faSearch}
+          />
         <a href="/write" className="float">
           <div className="my-float">
             <FontAwesomeIcon icon={faPlusCircle} className="f_a_icon" />

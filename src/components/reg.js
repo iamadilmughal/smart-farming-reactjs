@@ -10,12 +10,12 @@ const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
 
   // validate form errors being empty
-  Object.values(formErrors).forEach(val => {
+  Object.values(formErrors).forEach((val) => {
     val.length > 0 && (valid = false);
   });
 
   // validate the form was filled out
-  Object.values(rest).forEach(val => {
+  Object.values(rest).forEach((val) => {
     val === null && (valid = false);
   });
 
@@ -46,15 +46,15 @@ class reg extends Component {
         email: "",
         password: "",
         confirmPassword: "",
-        username: ""
-      }
+        username: "",
+      },
     };
   }
-  fileChangeHandler = event => {
+  fileChangeHandler = (event) => {
     console.log(event);
     this.setState({
       selectedFile: event.target.files[0],
-      loaded: 0
+      loaded: 0,
     });
   };
 
@@ -63,92 +63,97 @@ class reg extends Component {
     this.setState({ category: event.target.value });
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     const { password, confirmPassword } = this.state;
     // perform all neccassary validations
     if (password !== confirmPassword) {
-      return alert("Passwords don't match");
+      alert("Passwords don't match");
     } else if (password == "" && confirmPassword == "") {
-      return alert("Password cannot be empty!");
-    }
-    e.preventDefault();
-
-    if (formValid(this.state)) {
-      //if the form is valid then we pass the values.
-      let data = new FormData();
-
-      data.append("name", this.state.firstName + " " + this.state.lastName);
-      data.append("email", this.state.email);
-      data.append("username", this.state.username);
-      data.append("password", this.state.password);
-      data.append("category", this.state.category);
-      data.append("dob", this.state.dateOfBirth);
-      data.append("address", this.state.address);
-      data.append("profileImage", this.state.selectedFile);
-
-      for (var key of data.entries()) {
-        console.log(key[0] + ": " + key[1]);
-      }
-      
-      if (this.state.category == "expert") {
-        Axios.post("http://localhost:3000/expert/", data)
-          .then(res => {
-            console.log(res.data);
-            if (res.data.status === 1) {
-              alert("Expert Added Successfully");
-            } else {
-              if (res.data.message) alert(res.data.message);
-              else {
-                alert("Some Error Occured");
-              }
-            }
-          })
-          .catch(error => {
-            alert("Some Error Occured");
-            console.log(error);
-          });
-      } else if (this.state.category == "admin") {
-        Axios.post("http://localhost:3000/admin/", data)
-          .then(res => {
-            console.log(res.data);
-            if (res.data.status === 1) {
-              alert("Admin Added Successfully");
-            } else {
-              if (res.data.message) alert(res.data.message);
-              else {
-                alert("Some Error Occured");
-              }
-            }
-          })
-          .catch(error => {
-            alert("Some Error Occured");
-            console.log(error);
-          });
-      } else {
-        Axios.post("http://localhost:3000/farmer/", data)
-          .then(res => {
-            console.log(res.data);
-            if (res.data.status === 1) {
-              alert("Admin Added Successfully");
-            } else {
-              if (res.data.message) alert(res.data.message);
-              else {
-                alert("Some Error Occured");
-              }
-            }
-          })
-          .catch(error => {
-            alert("Some Error Occured");
-            console.log(error);
-          });
-      }
+      alert("Password cannot be empty!");
     } else {
-      //if the form is invalid then we display the corresponding error message.
-      console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+      e.preventDefault();
+
+      if (formValid(this.state)) {
+        //if the form is valid then we pass the values.
+        let data = new FormData();
+
+        data.append("name", this.state.firstName + " " + this.state.lastName);
+        data.append("email", this.state.email);
+        data.append("username", this.state.username);
+        data.append("password", this.state.password);
+        data.append("category", this.state.category);
+        data.append("dob", this.state.dateOfBirth);
+        data.append("address", this.state.address);
+        data.append("profileImage", this.state.selectedFile);
+
+        for (var key of data.entries()) {
+          console.log(key[0] + ": " + key[1]);
+        }
+
+        if (this.state.category == "expert") {
+          Axios.post("http://localhost:3000/expert/", data)
+            .then((res) => {
+              console.log(res.data);
+              if (res.data.status === 1) {
+                alert("Expert Added Successfully");
+                this.props.history.push("/viewExperts");
+              } else {
+                if (res.data.message) alert(res.data.message);
+                else {
+                  alert("Some Error Occured");
+                }
+              }
+            })
+            .catch((error) => {
+              alert("Some Error Occured");
+              console.log(error);
+            });
+        } else if (this.state.category == "admin") {
+          Axios.post("http://localhost:3000/admin/", data)
+            .then((res) => {
+              console.log(res.data);
+              if (res.data.status === 1) {
+                alert("Admin Added Successfully");
+                this.props.history.push("/viewExperts");
+              } else {
+                if (res.data.message) alert(res.data.message);
+                else {
+                  alert("Some Error Occured");
+                }
+              }
+            })
+            .catch((error) => {
+              alert("Some Error Occured");
+              console.log(error);
+            });
+        } else {
+          Axios.post("http://localhost:3000/farmer/", data)
+            .then((res) => {
+              console.log(res.data);
+              if (res.data.status === 1) {
+                alert("Farmer Added Successfully");
+                this.props.history.push("/viewUsers");
+              } else {
+                if (res.data.message) alert(res.data.message);
+                else {
+                  alert("Some Error Occured");
+                }
+              }
+            })
+            .catch((error) => {
+              alert("Some Error Occured");
+              console.log(error);
+            });
+        }
+      } else {
+        //if the form is invalid then we display the corresponding error message.
+        console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+        alert("Invalid Form Entry - Please Fill Empty Fields");
+      }
     }
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target; //destructuring both name and its value.
     let formErrors = { ...this.state.formErrors };

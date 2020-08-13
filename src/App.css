@@ -146,10 +146,6 @@ h1, h2, h3, h4, h5, h6, p {
   transition-duration: 0.3s;
 }
 
-DataTable{
-  font-family: Quicksand, Noto, sans-serif;
-}
-
 .view-page-body{
   background-color: rgb(245, 245, 245);
   padding-top: 5%;
@@ -216,4 +212,11 @@ Header{
 
 .footer{
   position: relative;;
+}
+
+.data-table-div input{
+  border: 0px;
+  border-radius: 0;
+  border-bottom:rgb(189, 189, 189) 2px solid;
+  width: 98%;
 }

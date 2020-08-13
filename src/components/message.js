@@ -54,7 +54,7 @@ class message extends Component {
 
     if (formValid(this.state)) {
       const from = this.state.phoneNumber;
-      const to = "923345056112";
+      const to = "923328634935";
       const text = this.state.message;
 
       const msg = "Message: " + text + "FROM: " + from;

@@ -343,7 +343,6 @@ class EditUser extends Component {
                     <input
                       type="file"
                       name="file"
-                      value={this.state.selectedFile}
                       multiple
                       onChange={this.fileChangeHandler}
                     />

@@ -26,7 +26,7 @@ const columns = [
     selector: "imageURL",
     cell: (row) => (
       <div>
-        <img className="row-image" src={row.imageURL} alt={row.Prediction} />
+        <img className="row-image" src={row.ImageURL} alt={row.Prediction} />
       </div>
     ),
     sortable: false,
@@ -83,6 +83,10 @@ class Dashboard extends React.Component {
     this.state = {
       chartData: {},
       latestDetections: [],
+      pestCount: 0,
+      plantCount: 0,
+      diseaseCount: 0,
+      feedbackCount: 0,
     };
     this.token = localStorage.getItem("token");
   }
@@ -92,13 +96,27 @@ class Dashboard extends React.Component {
       Authorization: "Bearer " + this.token,
     };
 
+    // Fetching Stats Data
+    Axios.get(
+      "https://smartfarmingnodeserver.herokuapp.com/dashboard/getStats"
+    ).then((response) => {
+      console.log("Stats Response");
+      console.log(response);
+      this.setState({
+        plantCount: response.data.plants,
+        pestCount: response.data.pests,
+        diseaseCount: response.data.diseasees,
+        feedbackCount: response.data.feedbacks,
+      });
+    });
+
     Axios.get("https://smartfarmingnodeserver.herokuapp.com/feedback")
       .then((response) => {
-        this.setState({ latestDetections: response.data.results });
+        this.setState({
+          latestDetections: response.data.results,
+          feedbackCount: response.data.results.length,
+        });
         console.log(response.data.results);
-        // alert.show("Data Loaded Successfully", {
-        //   title: "Data Has been Loaded",
-        // });
       })
       .catch(function (error) {
         console.log(error);
@@ -159,28 +177,28 @@ class Dashboard extends React.Component {
       <div className="content-wrapper dashboard-page-body">
         <section className="numbers-section">
           <div className="number-div">
-            <h2 className="number-count">1</h2>
+            <h2 className="number-count">{this.state.diseaseCount}</h2>
             <h5 className="number-heading">
-              <FontAwesomeIcon className="number-icon" icon={faUser} />
-              Total Users
+              <FontAwesomeIcon className="number-icon" icon={faLeaf} />
+              Total Diseases
             </h5>
           </div>
           <div className="number-div">
-            <h2 className="number-count">5</h2>
+            <h2 className="number-count">{this.state.pestCount}</h2>
             <h5 className="number-heading">
               <FontAwesomeIcon className="number-icon" icon={faBug} />
               Total Pests
             </h5>
           </div>
           <div className="number-div">
-            <h2 className="number-count">4</h2>
+            <h2 className="number-count">{this.state.plantCount}</h2>
             <h5 className="number-heading">
               <FontAwesomeIcon className="number-icon" icon={faLeaf} />
               Total Plants
             </h5>
           </div>
           <div className="number-div">
-            <h2 className="number-count">10</h2>
+            <h2 className="number-count">{this.state.feedbackCount}</h2>
             <h5 className="number-heading">
               <FontAwesomeIcon className="number-icon" icon={faMobile} />
               Total Detections

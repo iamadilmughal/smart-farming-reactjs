@@ -63,3 +63,20 @@
   text-align: left;
   display: inline-block;
 }
+
+.post-search-bar{
+  display: inline-block;
+  width: 30%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  border-bottom: #009688 2px solid;
+  border-radius: 0;
+  font-style: italic;
+  margin-left: 25%;
+  font-size: large;
+  color: #009688;
+}
+
+.search-bar-icon{
+  margin-right: -5%;
+}

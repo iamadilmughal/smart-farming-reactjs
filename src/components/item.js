@@ -106,7 +106,7 @@ function Item(props) {
             {type === "disease" ? "Caused By" : "Scientific Name"}
           </h4>
           <p className="item-div-content">
-            {type === "disease" || "plant" ? items : scientificName}
+            {type === "disease" ? items : scientificName}
           </p>
         </div>
       </div>

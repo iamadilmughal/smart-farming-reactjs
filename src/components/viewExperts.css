@@ -22,3 +22,16 @@ td button{
 .downrate-icon{
     color: #ef5350;
 }
+
+.role-selector{
+    width: 15%;
+    padding: 10px;
+    display: block;
+    margin-left: 80%;
+    border: 0px;
+    font-family: Quicksand, Noto, sans-serif;
+    font-weight: 700;
+    color: #009688;
+    border-radius: 0px;
+    border-bottom: #009688 2px solid;
+}
